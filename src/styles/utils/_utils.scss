@@ -1,0 +1,61 @@
+@use "abstracts/variables" as v;
+
+.color-db {
+  color: v.$dark-blue;
+}
+
+.color-lb {
+  color: v.$light-blue;
+}
+
+.color-w {
+  color: v.$white;
+}
+
+.heading-1 {
+  font-family: v.$font-bellefair;
+  font-size: v.$fs-150;
+}
+
+.heading-2 {
+  font-family: v.$font-bellefair;
+  font-size: v.$fs-100;
+}
+
+.heading-3 {
+  font-family: v.$font-bellefair;
+  font-size: v.$fs-56;
+}
+
+.heading-4 {
+  font-family: v.$font-bellefair;
+  font-size: v.$fs-32;
+}
+
+.heading-5 {
+  font-family: v.$font-barlow;
+  font-size: v.$fs-28;
+  letter-spacing: v.$ls-h5;
+}
+
+.subheading-1 {
+  font-family: v.$font-bellefair;
+  font-size: v.$fs-28;
+}
+
+.subheading-2 {
+  font-family: v.$font-barlow;
+  font-size: v.$fs-14;
+  letter-spacing: v.$ls-sh2;
+}
+
+.nav-text {
+  font-family: v.$font-barlow;
+  font-size: v.$fs-16;
+  letter-spacing: v.$ls-nav;
+}
+
+.text {
+  font-family: v.$font-barlow;
+  font-size: v.$fs-18;
+}
