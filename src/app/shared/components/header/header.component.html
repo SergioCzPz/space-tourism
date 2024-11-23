@@ -1,1 +1,23 @@
-<p>header works!</p>,
+<header class="header">
+  <a class="header__logo-link">
+    <img
+      src="assets/images/shared/logo.svg"
+      alt="Logo space tourism"
+      width="50"
+      height="50"
+      class="header__logo"
+    />
+  </a>
+
+  <button class="header__btn" (click)="toggleMenu()">
+    <img
+      src="assets/images/shared/icon-hamburger.svg"
+      alt="Show menu"
+      width="50"
+      height="50"
+      class="header__btn-img"
+    />
+  </button>
+
+  <app-menu [display]="isMenuDisplayed()" />
+</header>

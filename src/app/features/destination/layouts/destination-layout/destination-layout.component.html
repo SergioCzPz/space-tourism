@@ -1,0 +1,29 @@
+<!-- All information about destination is provided by the specific component -->
+
+<section class="destination">
+  <img
+    src="assets/images/destination/image-moon.png"
+    alt="moon"
+    class="destination__image"
+  />
+
+  <div class="destination__info">
+    <app-nav-dest />
+    <h2 class="destination__destination">{{ destination().name }}</h2>
+    <p class="destination__info">
+      {{ destination().description }}
+    </p>
+
+    <div class="stats">
+      <div class="stats__content">
+        <h3 class="stats__title">Avg. Distance</h3>
+        <p class="stats__data">{{ destination().distance }}</p>
+      </div>
+
+      <div class="stats__content">
+        <h3 class="stats__title">Est. Travel Time</h3>
+        <p class="stats__data">{{ destination().travel }}</p>
+      </div>
+    </div>
+  </div>
+</section>

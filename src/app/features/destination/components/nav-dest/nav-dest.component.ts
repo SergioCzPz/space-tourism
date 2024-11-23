@@ -1,11 +1,11 @@
 import { ChangeDetectionStrategy, Component } from '@angular/core';
 
 @Component({
-  selector: 'app-home',
+  selector: 'app-nav-dest',
   standalone: true,
   imports: [],
-  templateUrl: './home.component.html',
-  styleUrl: './home.component.scss',
+  templateUrl: './nav-dest.component.html',
+  styleUrl: './nav-dest.component.scss',
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class HomeComponent {}
+export class NavDestComponent { }

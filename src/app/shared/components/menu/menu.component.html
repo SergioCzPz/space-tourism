@@ -1,1 +1,11 @@
-<p>menu works!</p>,
+<nav class="nav">
+  <ul class="nav__list">
+    @for (link of links; track $index) {
+    <li class="nav__list-item">
+      <a [routerLink]="link.routePath" class="nav__link">
+        <span>0{{ $index }}</span> {{ link.displayPath }}
+      </a>
+    </li>
+    }
+  </ul>
+</nav>
