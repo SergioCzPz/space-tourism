@@ -10,12 +10,12 @@ import {
 import { Destination } from '../../types/destination.interface';
 import { DestinationService } from '../../services/destination.service';
 import { NavDestComponent } from '../../components/nav-dest/nav-dest.component';
-import { CommonModule, NgOptimizedImage } from '@angular/common';
+import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-destination-layout',
   standalone: true,
-  imports: [NavDestComponent, CommonModule, NgOptimizedImage],
+  imports: [NavDestComponent, CommonModule],
   templateUrl: './destination-layout.component.html',
   styleUrl: './destination-layout.component.scss',
   changeDetection: ChangeDetectionStrategy.OnPush,
