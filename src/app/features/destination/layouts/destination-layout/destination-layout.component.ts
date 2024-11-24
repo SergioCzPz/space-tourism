@@ -10,12 +10,12 @@ import {
 import { Destination } from '../../types/destination.interface';
 import { DestinationService } from '../../services/destination.service';
 import { NavDestComponent } from '../../components/nav-dest/nav-dest.component';
-import { CommonModule } from '@angular/common';
+import { CommonModule, NgOptimizedImage } from '@angular/common';
 
 @Component({
   selector: 'app-destination-layout',
   standalone: true,
-  imports: [NavDestComponent, CommonModule],
+  imports: [NavDestComponent, CommonModule, NgOptimizedImage],
   templateUrl: './destination-layout.component.html',
   styleUrl: './destination-layout.component.scss',
   changeDetection: ChangeDetectionStrategy.OnPush,
@@ -38,5 +38,7 @@ export class DestinationLayoutComponent implements OnInit {
     $destObservable
       .subscribe((dest) => this.destination.set(dest))
       .unsubscribe();
+
+    console.log(this.destination());
   }
 }

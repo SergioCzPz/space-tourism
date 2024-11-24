@@ -1,11 +1,17 @@
 <!-- All information about destination is provided by the specific component -->
 
 <section class="destination">
-  <img
-    src="assets/images/destination/image-moon.png"
-    alt="moon"
-    class="destination__image"
-  />
+  <picture>
+    <source [srcset]="destination().images.webp" type="image/webp" />
+    <source [srcset]="destination().images.png" type="image/png" />
+    <img
+      [src]="destination().images.png"
+      width="250"
+      height="250"
+      class="destination__image"
+      [alt]="destination().name"
+    />
+  </picture>
 
   <div class="destination__info">
     <app-nav-dest />

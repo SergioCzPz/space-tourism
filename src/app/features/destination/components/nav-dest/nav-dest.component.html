@@ -1,1 +1,11 @@
-<p>nav-dest works!</p>,
+<nav class="nav">
+  <ul class="nav__list">
+    @for (link of destinations; track $index) {
+    <li class="nav__list-item">
+      <a [routerLink]="[rootDestPath, link]" class="nav__link">
+        {{ link }}
+      </a>
+    </li>
+    }
+  </ul>
+</nav>
