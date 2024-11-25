@@ -38,7 +38,5 @@ export class DestinationLayoutComponent implements OnInit {
     $destObservable
       .subscribe((dest) => this.destination.set(dest))
       .unsubscribe();
-
-    console.log(this.destination());
   }
 }
