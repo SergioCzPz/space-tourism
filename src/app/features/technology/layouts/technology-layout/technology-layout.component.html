@@ -1,0 +1,30 @@
+<section class="tech">
+  <div class="tech__content">
+    <app-tech-nav />
+
+    <div class="tech__info">
+      <h2 class="tech__terminology">The terminology</h2>
+      <h3 class="tech__technology">{{ technology().name }}</h3>
+      <p class="tech__description">
+        {{ technology().description }}
+      </p>
+    </div>
+  </div>
+
+  <!-- image -->
+
+  @if(technology().images.landscape !== ''){
+  <img
+    [srcset]="imageSrcset()"
+    sizes="
+    (max-width: 768px) 768px,
+    calc(100vw / 3)
+      "
+    [src]="technology().images.landscape"
+    width="500"
+    height="200"
+    class="tech__image"
+    [alt]="technology().name"
+  />
+  }
+</section>
