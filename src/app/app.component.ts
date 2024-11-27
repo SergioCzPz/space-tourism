@@ -1,5 +1,11 @@
-import { Component } from '@angular/core';
-import { RouterOutlet } from '@angular/router';
+import {
+  Component,
+  inject,
+  OnInit,
+  signal,
+  WritableSignal,
+} from '@angular/core';
+import { NavigationEnd, Router, RouterOutlet } from '@angular/router';
 import { HeaderComponent } from './shared/components/header/header.component';
 
 @Component({
@@ -9,6 +15,21 @@ import { HeaderComponent } from './shared/components/header/header.component';
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss',
 })
-export class AppComponent {
-  title = 'space-tourism';
+export class AppComponent implements OnInit {
+  public mainSegment: WritableSignal<string> = signal('');
+  private router = inject(Router);
+
+  ngOnInit(): void {
+    this.router.events.subscribe((event) => {
+      if (event instanceof NavigationEnd) {
+        const path = this.getMainSegment(event.url);
+        this.mainSegment.set(path);
+      }
+    });
+  }
+
+  getMainSegment(url: string): string {
+    const path = url.split('/')[1] === '' ? 'home' : url.split('/')[1];
+    return path;
+  }
 }
