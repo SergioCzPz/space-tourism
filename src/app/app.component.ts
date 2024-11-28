@@ -2,6 +2,7 @@ import {
   Component,
   inject,
   OnInit,
+  Renderer2,
   signal,
   WritableSignal,
 } from '@angular/core';
@@ -16,16 +17,30 @@ import { HeaderComponent } from './shared/components/header/header.component';
   styleUrl: './app.component.scss',
 })
 export class AppComponent implements OnInit {
-  public mainSegment: WritableSignal<string> = signal('');
+  // Change to private
+  private mainSegment!: string;
+  private body: HTMLElement = document.body;
+
+  private renderer = inject(Renderer2);
   private router = inject(Router);
 
   ngOnInit(): void {
     this.router.events.subscribe((event) => {
       if (event instanceof NavigationEnd) {
-        const path = this.getMainSegment(event.url);
-        this.mainSegment.set(path);
+        this.setClassBody(event.url);
       }
     });
+  }
+
+  setClassBody(url: string): void {
+    let urlSegment = this.getMainSegment(url);
+    urlSegment = urlSegment === '/' ? 'home' : urlSegment;
+
+    if (this.mainSegment === urlSegment) return;
+
+    this.renderer.removeClass(this.body, this.mainSegment);
+    this.renderer.addClass(this.body, urlSegment);
+    this.mainSegment = urlSegment;
   }
 
   getMainSegment(url: string): string {
