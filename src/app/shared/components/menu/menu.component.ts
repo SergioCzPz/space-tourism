@@ -1,4 +1,9 @@
-import { ChangeDetectionStrategy, Component, Input } from '@angular/core';
+import {
+  ChangeDetectionStrategy,
+  Component,
+  Input,
+  WritableSignal,
+} from '@angular/core';
 import { LinkInterface } from '../../types/link.interface';
 import { RouterModule } from '@angular/router';
 
@@ -11,7 +16,8 @@ import { RouterModule } from '@angular/router';
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class MenuComponent {
-  @Input({ required: true }) display!: boolean;
+  // Convert to signal
+  @Input({ required: true }) display!: WritableSignal<boolean>;
 
   public links: LinkInterface[] = [
     {
@@ -31,4 +37,8 @@ export class MenuComponent {
       routePath: '/technology',
     },
   ];
+
+  closeNav() {
+    this.display.set(false);
+  }
 }

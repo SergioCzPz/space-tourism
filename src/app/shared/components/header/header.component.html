@@ -9,15 +9,22 @@
     />
   </a>
 
-  <button class="header__btn" (click)="toggleMenu()">
+  <button
+    class="header__btn menu-btn"
+    [ngClass]="{ 'display-none': isMenuDisplayed() }"
+    (click)="openMenu()"
+  >
     <img
       src="assets/images/shared/icon-hamburger.svg"
       alt="Show menu"
       width="50"
       height="50"
-      class="header__btn-img"
+      class="header__btn-img menu-btn-img"
     />
   </button>
 
-  <app-menu [display]="isMenuDisplayed()" />
+  <app-menu
+    [ngClass]="{ 'display-none': !isMenuDisplayed() }"
+    [display]="isMenuDisplayed"
+  />
 </header>

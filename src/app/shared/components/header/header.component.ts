@@ -5,11 +5,12 @@ import {
   WritableSignal,
 } from '@angular/core';
 import { MenuComponent } from '../menu/menu.component';
+import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-header',
   standalone: true,
-  imports: [MenuComponent],
+  imports: [MenuComponent, CommonModule],
   templateUrl: './header.component.html',
   styleUrl: './header.component.scss',
   changeDetection: ChangeDetectionStrategy.OnPush,
@@ -17,7 +18,7 @@ import { MenuComponent } from '../menu/menu.component';
 export class HeaderComponent {
   isMenuDisplayed: WritableSignal<boolean> = signal<boolean>(false);
 
-  toggleMenu(): void {
-    this.isMenuDisplayed.update((isDisplay) => !isDisplay);
+  openMenu(): void {
+    this.isMenuDisplayed.set(true);
   }
 }

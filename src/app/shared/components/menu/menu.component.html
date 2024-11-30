@@ -1,9 +1,30 @@
 <nav class="nav">
+  <div class="nav__close-container">
+    <button class="nav__close menu-btn">
+      <img
+        src="assets/images/shared/icon-close.svg"
+        alt="close"
+        class="nav__close-img menu-btn-img"
+        (click)="closeNav()"
+      />
+    </button>
+  </div>
   <ul class="nav__list">
     @for (link of links; track $index) {
     <li class="nav__list-item">
-      <a [routerLink]="link.routePath" class="nav__link">
-        <span>0{{ $index }}</span> {{ link.displayPath }}
+      <a
+        [routerLink]="link.routePath"
+        class="nav__link nav-link color-w"
+        [routerLinkActive]="'nav__link-active'"
+        [routerLinkActiveOptions]="{
+          matrixParams: 'ignored',
+          queryParams: 'ignored',
+          paths: 'subset',
+          fragment: 'ignored'
+        }"
+      >
+        <span class="nav__link-number">0{{ $index }}</span>
+        {{ link.displayPath }}
       </a>
     </li>
     }
