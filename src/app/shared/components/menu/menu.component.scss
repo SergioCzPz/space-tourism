@@ -36,7 +36,7 @@
 }
 
 .nav__list {
-  align-self: flex-start;
+  align-self: stretch;
   list-style: none;
   padding: 3.3rem 1.7rem;
   margin: 0;
@@ -53,7 +53,7 @@
   content: "";
   position: absolute;
   top: 0;
-  right: -4.3rem;
+  right: -2.7rem;
   bottom: 0;
   width: 1rem;
   background-color: v.$white;

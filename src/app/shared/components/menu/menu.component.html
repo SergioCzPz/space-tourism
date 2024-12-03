@@ -15,13 +15,7 @@
       <a
         [routerLink]="link.routePath"
         class="nav__link nav-link color-w"
-        [routerLinkActive]="'nav__link-active'"
-        [routerLinkActiveOptions]="{
-          matrixParams: 'ignored',
-          queryParams: 'ignored',
-          paths: 'subset',
-          fragment: 'ignored'
-        }"
+        [ngClass]="{ 'nav__link-active': link.isActive() }"
       >
         <span class="nav__link-number">0{{ $index }}</span>
         {{ link.displayPath }}

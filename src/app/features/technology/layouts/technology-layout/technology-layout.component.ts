@@ -40,14 +40,10 @@ export class TechnologyLayoutComponent implements OnInit {
     $technologyObservable
       .subscribe((tech) => {
         this.technology.set(tech);
-        console.log(this.technology().images.landscape);
-        console.log(this.technology().images.portrait);
-        console.log(this.imageSrcset());
         this.imageSrcset.set(
           `${this.technology().images.landscape} 768w,
            ${this.technology().images.portrait} 515w`
         );
-        console.log(this.imageSrcset());
       })
       .unsubscribe();
   }
