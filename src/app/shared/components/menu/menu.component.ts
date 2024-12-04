@@ -47,6 +47,7 @@ export class MenuComponent implements OnInit {
       ?.isActive.set(true);
 
     this.lastSegment = urlSegment;
+    this.display.set(false);
   }
 
   closeNav() {
