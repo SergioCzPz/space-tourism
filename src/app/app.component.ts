@@ -1,13 +1,7 @@
-import {
-  Component,
-  inject,
-  OnInit,
-  Renderer2,
-  signal,
-  WritableSignal,
-} from '@angular/core';
-import { NavigationEnd, Router, RouterOutlet } from '@angular/router';
+import { Component, inject, OnInit, Renderer2 } from '@angular/core';
+import { RouterOutlet } from '@angular/router';
 import { HeaderComponent } from './shared/components/header/header.component';
+import { PathService } from './shared/services/path.service';
 
 @Component({
   selector: 'app-root',
@@ -17,34 +11,22 @@ import { HeaderComponent } from './shared/components/header/header.component';
   styleUrl: './app.component.scss',
 })
 export class AppComponent implements OnInit {
-  // Change to private
   private mainSegment!: string;
   private body: HTMLElement = document.body;
-
   private renderer = inject(Renderer2);
-  private router = inject(Router);
+  private pathService = inject(PathService);
 
   ngOnInit(): void {
-    this.router.events.subscribe((event) => {
-      if (event instanceof NavigationEnd) {
-        this.setClassBody(event.url);
-      }
+    this.pathService.$path.subscribe((urlSegment) => {
+      this.setClassBody(urlSegment);
     });
   }
 
-  setClassBody(url: string): void {
-    let urlSegment = this.getMainSegment(url);
-    urlSegment = urlSegment === '/' ? 'home' : urlSegment;
-
+  setClassBody(urlSegment: string): void {
     if (this.mainSegment === urlSegment) return;
 
     this.renderer.removeClass(this.body, this.mainSegment);
     this.renderer.addClass(this.body, urlSegment);
     this.mainSegment = urlSegment;
-  }
-
-  getMainSegment(url: string): string {
-    const path = url.split('/')[1] === '' ? 'home' : url.split('/')[1];
-    return path;
   }
 }
