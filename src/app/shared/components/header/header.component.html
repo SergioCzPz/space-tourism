@@ -23,8 +23,5 @@
     />
   </button>
 
-  <app-menu
-    [ngClass]="{ 'display-none': !isMenuDisplayed() }"
-    [display]="isMenuDisplayed"
-  />
+  <app-menu [display]="isMenuDisplayed" />
 </header>

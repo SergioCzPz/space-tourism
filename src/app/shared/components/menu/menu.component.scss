@@ -12,13 +12,19 @@
 
   position: fixed;
   top: 0;
-  right: 0;
+  right: -68%;
 
   width: 68%;
   height: 100vh;
   padding: 1rem;
   background-color: rgba(0, 0, 0, 0.1);
   backdrop-filter: blur(2.5rem);
+
+  transition: right 1s ease-in-out;
+}
+
+.nav-mobile-active {
+  right: 0;
 }
 
 .nav__close-container {
