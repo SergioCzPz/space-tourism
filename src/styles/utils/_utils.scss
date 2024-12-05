@@ -1,4 +1,5 @@
 @use "abstracts/variables" as v;
+@use "abstracts/mixins" as m;
 
 .color-db {
   color: v.$dark-blue;
@@ -12,52 +13,122 @@
   color: v.$white;
 }
 
+// Preset 1
 .heading-1 {
   font-family: v.$font-bellefair;
-  font-size: v.$fs-144;
+  font-weight: v.$fw-400;
+  font-size: v.$fs-80;
+
+  @include m.mq("desktop") {
+    font-size: v.$fs-144;
+  }
 }
 
+// Preset 2
 .heading-2 {
   font-family: v.$font-bellefair;
-  font-size: v.$fs-100;
+  font-weight: v.$fw-400;
+  font-size: v.$fs-56;
+
+  @include m.mq("tablet") {
+    font-size: v.$fs-80;
+  }
+
+  @include m.mq("desktop") {
+    font-size: v.$fs-100;
+  }
 }
 
+// Preset 3
 .heading-3 {
   font-family: v.$font-bellefair;
-  font-size: v.$fs-56;
+  font-weight: v.$fw-400;
+  font-size: v.$fs-24;
+
+  @include m.mq("tablet") {
+    font-size: v.$fs-40;
+  }
+
+  @include m.mq("desktop") {
+    font-size: v.$fs-56;
+  }
 }
 
+// Preset 4
 .heading-4 {
   font-family: v.$font-bellefair;
-  font-size: v.$fs-32;
+  font-weight: v.$fw-400;
+  font-size: v.$fs-18;
+
+  @include m.mq("tablet") {
+    font-size: v.$fs-24;
+  }
+
+  @include m.mq("desktop") {
+    font-size: v.$fs-32;
+  }
 }
 
+// Preset 5
 .heading-5 {
   font-family: v.$font-barlow;
-  font-size: v.$fs-28;
+  font-weight: v.$fw-400;
   letter-spacing: v.$ls-h5;
+
+  @include m.mq("tablet") {
+    font-size: v.$fs-20;
+  }
+
+  @include m.mq("desktop") {
+    font-size: v.$fs-28;
+  }
 }
 
+// Preset 6
 .subheading-1 {
   font-family: v.$font-bellefair;
-  font-size: v.$fs-28;
+  font-weight: v.$fw-400;
+  font-size: v.$fs-16;
+
+  @include m.mq("desktop") {
+    font-size: v.$fs-28;
+  }
 }
 
+// Preset 7
 .subheading-2 {
   font-family: v.$font-barlow;
+  font-weight: v.$fw-400;
   font-size: v.$fs-14;
   letter-spacing: v.$ls-sh2;
 }
 
+// Preset 8
 .nav-link {
   font-family: v.$font-barlow;
-  font-size: v.$fs-16;
+  font-weight: v.$fw-400;
+  font-size: v.$fs-14;
   letter-spacing: v.$ls-nav;
+
+  @include m.mq("desktop") {
+    font-size: v.$fs-16;
+  }
 }
 
+// Preset 9
 .text {
   font-family: v.$font-barlow;
-  font-size: v.$fs-18;
+  font-weight: v.$fw-400;
+  font-size: v.$fs-15;
+  line-height: v.$lh-180;
+
+  @include m.mq("tablet") {
+    font-size: v.$fs-16;
+  }
+
+  @include m.mq("desktop") {
+    font-size: v.$fs-18;
+  }
 }
 
 .menu-btn {
