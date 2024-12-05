@@ -1,3 +1,22 @@
+@use "abstracts/variables" as v;
+@use "abstracts/mixins" as m;
+
 :host {
   display: block;
+}
+
+.home-page {
+  padding: 2.4rem;
+  text-align: center;
+}
+
+.home__title {
+  text-transform: uppercase;
+  color: v.$white;
+  margin: 0;
+}
+
+.home__title-span {
+  display: block;
+  color: v.$light-blue;
 }
