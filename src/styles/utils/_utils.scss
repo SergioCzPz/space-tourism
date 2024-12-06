@@ -86,9 +86,10 @@
 
 // Preset 6
 .subheading-1 {
-  font-family: v.$font-bellefair;
+  font-family: v.$font-barlow;
   font-weight: v.$fw-400;
   font-size: v.$fs-16;
+  letter-spacing: v.$ls-preset-6;
 
   @include m.mq("desktop") {
     font-size: v.$fs-28;
@@ -107,12 +108,8 @@
 .nav-link {
   font-family: v.$font-barlow;
   font-weight: v.$fw-400;
-  font-size: v.$fs-14;
+  font-size: v.$fs-16;
   letter-spacing: v.$ls-nav;
-
-  @include m.mq("desktop") {
-    font-size: v.$fs-16;
-  }
 }
 
 // Preset 9

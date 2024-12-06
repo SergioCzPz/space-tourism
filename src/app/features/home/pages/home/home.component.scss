@@ -19,4 +19,23 @@
 .home__title-span {
   display: block;
   color: v.$light-blue;
+  margin-bottom: 2.4rem;
+}
+
+.home__text {
+  text-wrap: balance;
+  color: v.$light-blue;
+  margin: 2.4rem 0 0;
+}
+
+// TODO: check margin
+.home__explore {
+  margin: 12rem auto;
+  display: grid;
+  place-content: center;
+  width: 14.4rem;
+  height: 14.4rem;
+  border-radius: 50%;
+  background-color: v.$white;
+  text-transform: uppercase;
 }
