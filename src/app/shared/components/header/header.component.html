@@ -1,5 +1,9 @@
 <header class="header">
-  <a class="header__logo-link">
+  <a
+    [routerLink]="['/']"
+    routerLinkActive="router-link-active"
+    class="header__logo-link"
+  >
     <img
       src="assets/images/shared/logo.svg"
       alt="Logo space tourism"
@@ -9,11 +13,7 @@
     />
   </a>
 
-  <button
-    class="header__btn menu-btn"
-    [ngClass]="{ 'display-none': isMenuDisplayed() }"
-    (click)="openMenu()"
-  >
+  <button class="header__btn menu-btn" (click)="openMenu()">
     <img
       src="assets/images/shared/icon-hamburger.svg"
       alt="Show menu"
