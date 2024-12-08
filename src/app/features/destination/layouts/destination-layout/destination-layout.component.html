@@ -1,34 +1,42 @@
-<!-- All information about destination is provided by the specific component -->
-
 <section class="destination-section">
-  <picture>
-    <source [srcset]="destination().images.webp" type="image/webp" />
-    <source [srcset]="destination().images.png" type="image/png" />
-    <img
-      [src]="destination().images.png"
-      width="250"
-      height="250"
-      class="destination__image"
-      [alt]="destination().name"
-    />
-  </picture>
+  <h1 class="destination__title subheading-1">
+    <span class="destination__num">01</span>Pick your destination
+  </h1>
 
-  <div class="destination__info">
-    <app-nav-dest />
-    <h2 class="destination__destination">{{ destination().name }}</h2>
-    <p class="destination__info">
-      {{ destination().description }}
-    </p>
+  <div class="destination__content">
+    <picture>
+      <source [srcset]="destination().images.webp" type="image/webp" />
+      <source [srcset]="destination().images.png" type="image/png" />
+      <img
+        [src]="destination().images.png"
+        width="250"
+        height="250"
+        class="destination__image"
+        [alt]="destination().name"
+      />
+    </picture>
 
-    <div class="stats">
-      <div class="stats__content">
-        <h3 class="stats__title">Avg. Distance</h3>
-        <p class="stats__data">{{ destination().distance }}</p>
+    <div class="destination__info">
+      <app-nav-dest />
+      <div class="destination__about">
+        <h2 class="destination__destination heading-2">
+          {{ destination().name }}
+        </h2>
+        <p class="destination__text text">
+          {{ destination().description }}
+        </p>
       </div>
 
-      <div class="stats__content">
-        <h3 class="stats__title">Est. Travel Time</h3>
-        <p class="stats__data">{{ destination().travel }}</p>
+      <div class="stats">
+        <div class="stats__content">
+          <h3 class="stats__title subheading-2">Avg. Distance</h3>
+          <p class="subheading-1 stats__data">{{ destination().distance }}</p>
+        </div>
+
+        <div class="stats__content">
+          <h3 class="stats__title subheading-2">Est. Travel Time</h3>
+          <p class="subheading-1 stats__data">{{ destination().travel }}</p>
+        </div>
       </div>
     </div>
   </div>

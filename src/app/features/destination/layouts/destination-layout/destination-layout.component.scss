@@ -1,3 +1,73 @@
+@use "abstracts/variables" as v;
+@use "abstracts/mixins" as m;
+
 :host {
   display: block;
+}
+
+.destination-section {
+  padding: v.$mg-24;
+}
+
+.destination__title {
+  text-align: center;
+  text-transform: uppercase;
+  color: v.$white;
+  margin: 0;
+}
+
+.destination__num {
+  font-weight: bold;
+  opacity: v.$number-op;
+  margin-right: v.$mg-24;
+}
+
+// display: flex
+.destination__content {
+}
+
+.destination__image {
+  margin: v.$mg-24 auto v.$mg-32;
+}
+
+.destination__about {
+  padding: v.$mg-24 0;
+  border-bottom: solid 0.1rem v.$border;
+}
+
+.destination__destination {
+  color: v.$white;
+  text-align: center;
+  text-transform: uppercase;
+  margin: 0;
+}
+
+.destination__text {
+  color: v.$light-blue;
+  text-align: center;
+  text-wrap: balance;
+  margin: 0;
+}
+
+.stats {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: v.$mg-24;
+  padding-top: v.$mg-24;
+}
+
+.stats__title {
+  color: v.$light-blue;
+  text-transform: uppercase;
+  text-align: center;
+  margin: 0 0 1.2rem;
+}
+
+.stats__data {
+  color: v.$white;
+  font-size: v.$fs-28;
+  text-transform: uppercase;
+  text-align: center;
+  margin: 0;
 }
