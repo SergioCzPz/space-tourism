@@ -1,10 +1,14 @@
 <nav class="nav">
   <ul class="nav__list">
-    @for (link of destinations; track $index) {
+    @for (link of destinationLinks; track $index) {
     <li class="nav__list-item">
-      <a [routerLink]="[rootDestPath, link]" class="nav__link">
-        {{ link }}
-      </a>
+      <a
+        [routerLink]="[rootDestPath, link.path]"
+        class="nav__link nav-link"
+        [ngClass]="{ 'nav__link-active': link.isActive() }"
+        (click)="activeLink($event)"
+        >{{ link.display }}</a
+      >
     </li>
     }
   </ul>

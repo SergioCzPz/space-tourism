@@ -1,3 +1,32 @@
+@use "abstracts/variables" as v;
+@use "abstracts/mixins" as m;
+
 :host {
   display: block;
+}
+
+.nav__list {
+  display: flex;
+  justify-content: space-evenly;
+  gap: 3rem;
+  margin: 0;
+  padding: 0;
+}
+
+.nav__link {
+  position: relative;
+  color: v.$light-blue;
+  padding: 0.5rem 0 1.5rem;
+  text-decoration: none;
+  text-transform: uppercase;
+}
+
+.nav__link-active::before {
+  content: "";
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  height: 0.3rem;
+  background-color: v.$white;
 }

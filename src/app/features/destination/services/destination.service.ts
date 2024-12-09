@@ -1,9 +1,13 @@
-import { Injectable } from '@angular/core';
+import { Injectable, signal } from '@angular/core';
 import { Destination } from '../types/destination.interface';
 import { Observable } from 'rxjs';
+import { DestinationLink } from '../types/destination-link.interface';
+import { DestinationEnum } from '../types/destination.enum';
 
 @Injectable({ providedIn: 'root' })
 export class DestinationService {
+  private segmentPath: string = 'destination';
+
   private destinations: Destination[] = [
     {
       name: 'Moon',
@@ -50,6 +54,30 @@ export class DestinationService {
       travel: '7 years',
     },
   ];
+
+  private destinationLinks: DestinationLink[] = [
+    {
+      display: DestinationEnum.moon,
+      path: `${DestinationEnum.moon.toLowerCase()}`,
+      isActive: signal(true),
+    },
+    {
+      display: DestinationEnum.mars,
+      path: `${DestinationEnum.mars.toLowerCase()}`,
+      isActive: signal(false),
+    },
+    {
+      display: DestinationEnum.europa,
+      path: `${DestinationEnum.europa.toLowerCase()}`,
+      isActive: signal(false),
+    },
+    {
+      display: DestinationEnum.titan,
+      path: `${DestinationEnum.titan.toLowerCase()}`,
+      isActive: signal(false),
+    },
+  ];
+
   constructor() {}
 
   getDestination(destination: string): Observable<Destination> {
@@ -58,5 +86,9 @@ export class DestinationService {
         this.destinations.find((dest) => dest.name === destination)!
       );
     });
+  }
+
+  getDestinationLinks(): DestinationLink[] {
+    return this.destinationLinks;
   }
 }
