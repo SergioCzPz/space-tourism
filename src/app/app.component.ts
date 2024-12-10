@@ -2,6 +2,7 @@ import { Component, inject, OnInit, Renderer2 } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 import { HeaderComponent } from './shared/components/header/header.component';
 import { PathService } from './shared/services/path.service';
+import { map } from 'rxjs';
 
 @Component({
   selector: 'app-root',
@@ -17,9 +18,11 @@ export class AppComponent implements OnInit {
   private pathService = inject(PathService);
 
   ngOnInit(): void {
-    this.pathService.$path.subscribe((urlSegment) => {
-      this.setClassBody(urlSegment);
-    });
+    this.pathService.$path
+      .pipe(map((ev) => this.pathService.getMainSegment(ev.url)))
+      .subscribe((urlSegment) => {
+        this.setClassBody(urlSegment);
+      });
   }
 
   setClassBody(urlSegment: string): void {

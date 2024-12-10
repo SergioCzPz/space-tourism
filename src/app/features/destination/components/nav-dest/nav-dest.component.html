@@ -6,7 +6,6 @@
         [routerLink]="[rootDestPath, link.path]"
         class="nav__link nav-link"
         [ngClass]="{ 'nav__link-active': link.isActive() }"
-        (click)="activeLink($event)"
         >{{ link.display }}</a
       >
     </li>

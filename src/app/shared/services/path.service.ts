@@ -6,19 +6,23 @@ import { filter, map, Observable, tap } from 'rxjs';
   providedIn: 'root',
 })
 export class PathService {
-  public $path!: Observable<string>;
+  public $path!: Observable<NavigationEnd>;
 
   private router = inject(Router);
 
   constructor() {
     this.$path = this.router.events.pipe(
-      filter((ev) => ev instanceof NavigationEnd),
-      map((ev) => this.getMainSegment(ev.url))
+      filter((ev) => ev instanceof NavigationEnd)
     );
   }
 
-  private getMainSegment(url: string): string {
+  public getMainSegment(url: string): string {
     const path = url.split('/')[1] === '' ? 'home' : url.split('/')[1];
+    return path;
+  }
+
+  public getLastSegment(url: string): string {
+    const path = url.split('/')[2];
     return path;
   }
 }

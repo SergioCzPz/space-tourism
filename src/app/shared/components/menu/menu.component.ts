@@ -11,6 +11,7 @@ import { RouterModule } from '@angular/router';
 import { PathService } from '../../services/path.service';
 import { CommonModule } from '@angular/common';
 import { links } from '../../types/links.constant';
+import { map } from 'rxjs';
 
 @Component({
   selector: 'app-menu',
@@ -30,9 +31,11 @@ export class MenuComponent implements OnInit {
   private pathService = inject(PathService);
 
   ngOnInit(): void {
-    this.pathService.$path.subscribe((path) => {
-      this.updateLinkActive(path);
-    });
+    this.pathService.$path
+      .pipe(map((ev) => this.pathService.getMainSegment(ev.url)))
+      .subscribe((path) => {
+        this.updateLinkActive(path);
+      });
   }
 
   updateLinkActive(urlSegment: string) {

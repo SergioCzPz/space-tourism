@@ -59,7 +59,7 @@ export class DestinationService {
     {
       display: DestinationEnum.moon,
       path: `${DestinationEnum.moon.toLowerCase()}`,
-      isActive: signal(true),
+      isActive: signal(false),
     },
     {
       display: DestinationEnum.mars,
