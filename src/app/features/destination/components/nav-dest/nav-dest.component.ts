@@ -1,8 +1,8 @@
 import {
   ChangeDetectionStrategy,
   Component,
+  effect,
   inject,
-  OnDestroy,
   OnInit,
 } from '@angular/core';
 import { CommonModule } from '@angular/common';
@@ -10,7 +10,6 @@ import { RouterModule } from '@angular/router';
 import { DestinationService } from '../../services/destination.service';
 import { DestinationLink } from '../../types/destination-link.interface';
 import { PathService } from '../../../../shared/services/path.service';
-import { map, Subscription, tap } from 'rxjs';
 
 @Component({
   selector: 'app-nav-dest',
@@ -20,31 +19,43 @@ import { map, Subscription, tap } from 'rxjs';
   styleUrl: './nav-dest.component.scss',
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class NavDestComponent implements OnInit, OnDestroy {
+export class NavDestComponent implements OnInit {
   public rootDestPath = '/destination';
   public destinationLinks!: DestinationLink[];
-  private subscription!: Subscription;
 
   private destinationService = inject(DestinationService);
   private pathService = inject(PathService);
 
-  ngOnInit(): void {
-    this.destinationLinks = this.destinationService.getDestinationLinks();
+  private destination!: string;
 
-    this.pathService.$path
-      .pipe(map((ev) => this.pathService.getLastSegment(ev.url)))
-      .subscribe((destination) => this.activeLink(destination));
+  constructor() {
+    this.destination = this.pathService.currentLastSegment();
+
+    effect(
+      () => {
+        this.activeLink(this.pathService.currentLastSegment());
+      },
+      { allowSignalWrites: true }
+    );
   }
 
-  ngOnDestroy(): void {
-    // this.subscription.unsubscribe();
+  ngOnInit(): void {
+    this.destinationLinks = this.destinationService.getDestinationLinks();
   }
 
   activeLink(destination: string): void {
-    console.log(destination);
+    if (this.destination === destination) return;
 
+    // Desactive destination
+    this.destinationLinks
+      .find((destination) => destination.isActive() === true)
+      ?.isActive.set(false);
+
+    // Active destination
     this.destinationLinks
       .find((link) => link.path === destination)
       ?.isActive.set(true);
+
+    this.destination = destination;
   }
 }

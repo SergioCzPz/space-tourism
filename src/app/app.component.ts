@@ -1,8 +1,7 @@
-import { Component, inject, OnInit, Renderer2 } from '@angular/core';
+import { Component, effect, inject, OnInit, Renderer2 } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 import { HeaderComponent } from './shared/components/header/header.component';
 import { PathService } from './shared/services/path.service';
-import { map } from 'rxjs';
 
 @Component({
   selector: 'app-root',
@@ -12,24 +11,27 @@ import { map } from 'rxjs';
   styleUrl: './app.component.scss',
 })
 export class AppComponent implements OnInit {
-  private mainSegment!: string;
   private body: HTMLElement = document.body;
   private renderer = inject(Renderer2);
   private pathService = inject(PathService);
+  private mainSegment: string = 'home';
 
-  ngOnInit(): void {
-    this.pathService.$path
-      .pipe(map((ev) => this.pathService.getMainSegment(ev.url)))
-      .subscribe((urlSegment) => {
-        this.setClassBody(urlSegment);
-      });
+  constructor() {
+    effect(() => {
+      this.setClassBody(this.pathService.currentMainSegment());
+    });
   }
 
-  setClassBody(urlSegment: string): void {
-    if (this.mainSegment === urlSegment) return;
+  ngOnInit(): void {
+    this.renderer.addClass(this.body, this.mainSegment);
+  }
+
+  setClassBody(urlSegment: string): string {
+    if (this.mainSegment === urlSegment) return this.mainSegment;
 
     this.renderer.removeClass(this.body, this.mainSegment);
     this.renderer.addClass(this.body, urlSegment);
     this.mainSegment = urlSegment;
+    return urlSegment;
   }
 }

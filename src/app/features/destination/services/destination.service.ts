@@ -6,8 +6,6 @@ import { DestinationEnum } from '../types/destination.enum';
 
 @Injectable({ providedIn: 'root' })
 export class DestinationService {
-  private segmentPath: string = 'destination';
-
   private destinations: Destination[] = [
     {
       name: 'Moon',

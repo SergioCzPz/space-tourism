@@ -1,9 +1,9 @@
 import {
   ChangeDetectionStrategy,
   Component,
+  effect,
   inject,
   Input,
-  OnInit,
   signal,
   WritableSignal,
 } from '@angular/core';
@@ -11,7 +11,6 @@ import { RouterModule } from '@angular/router';
 import { PathService } from '../../services/path.service';
 import { CommonModule } from '@angular/common';
 import { links } from '../../types/links.constant';
-import { map } from 'rxjs';
 
 @Component({
   selector: 'app-menu',
@@ -21,7 +20,7 @@ import { map } from 'rxjs';
   styleUrl: './menu.component.scss',
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class MenuComponent implements OnInit {
+export class MenuComponent {
   @Input({ required: true }) display!: WritableSignal<boolean>;
 
   public links = links;
@@ -30,12 +29,13 @@ export class MenuComponent implements OnInit {
   private lastSegment: string = 'home';
   private pathService = inject(PathService);
 
-  ngOnInit(): void {
-    this.pathService.$path
-      .pipe(map((ev) => this.pathService.getMainSegment(ev.url)))
-      .subscribe((path) => {
-        this.updateLinkActive(path);
-      });
+  constructor() {
+    effect(
+      () => {
+        this.updateLinkActive(this.pathService.currentMainSegment());
+      },
+      { allowSignalWrites: true }
+    );
   }
 
   updateLinkActive(urlSegment: string) {
