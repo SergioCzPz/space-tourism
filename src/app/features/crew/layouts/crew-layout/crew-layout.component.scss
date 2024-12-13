@@ -1,3 +1,63 @@
+@use "abstracts/variables" as v;
+@use "abstracts/mixins" as m;
+
 :host {
   display: block;
+}
+
+.crew-member {
+  padding: v.$mg-24;
+}
+
+.crew__title {
+  text-align: center;
+  text-transform: uppercase;
+  color: v.$white;
+  margin: 0 0 v.$mg-24;
+}
+
+.crew__title--num {
+  margin-right: v.$mg-24;
+  font-weight: bold;
+  opacity: v.$number-op;
+}
+
+.crew__crew {
+  display: flex;
+  flex-direction: column;
+  gap: v.$mg-32;
+}
+
+.crew__info {
+  margin: v.$mg-40 0 0;
+}
+
+.crew__role {
+  text-transform: uppercase;
+  text-align: center;
+  color: v.$white;
+  opacity: v.$number-op-50;
+  margin: 0;
+}
+
+.crew__name {
+  text-transform: uppercase;
+  text-align: center;
+  color: v.$white;
+  margin: v.$mg-5 0 0;
+}
+
+// check margin due to padding crew nav links
+.crew__bio {
+  text-align: center;
+  text-wrap: balance;
+  color: v.$light-blue;
+  margin: v.$mg-24 0 v.$mg-80;
+}
+
+.crew__image {
+  object-fit: contain;
+  height: 35rem;
+  width: 100%;
+  margin: 0 auto;
 }

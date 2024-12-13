@@ -1,29 +1,35 @@
 <section class="crew-member">
-  <div class="crew__info">
-    <div class="crew__content">
-      <h2 class="crew__role">
-        {{ crewMember().role }}
-      </h2>
-      <h3 class="crew__name">
-        {{ crewMember().name }}
-      </h3>
-      <p class="crew__bio">
-        {{ crewMember().bio }}
-      </p>
+  <h1 class="subheading-1 crew__title">
+    <span class="crew__title--num">02</span>Meet your crew
+  </h1>
+
+  <div class="crew__crew">
+    <div class="crew__info">
+      <div class="crew__content">
+        <h2 class="heading-4 crew__role">
+          {{ crewMember().role }}
+        </h2>
+        <h3 class="heading-3 crew__name">
+          {{ crewMember().name }}
+        </h3>
+        <p class="text crew__bio">
+          {{ crewMember().bio }}
+        </p>
+      </div>
+
+      <app-crew-nav />
     </div>
 
-    <app-crew-nav />
+    <picture>
+      <source [srcset]="crewMember().images.webp" type="image/webp" />
+      <source [srcset]="crewMember().images.png" type="image/png" />
+      <img
+        [src]="crewMember().images.png"
+        width="150"
+        height="150"
+        class="crew__image"
+        [alt]="crewMember().name"
+      />
+    </picture>
   </div>
-
-  <picture>
-    <source [srcset]="crewMember().images.webp" type="image/webp" />
-    <source [srcset]="crewMember().images.png" type="image/png" />
-    <img
-      [src]="crewMember().images.png"
-      width="250"
-      height="250"
-      class="crew__image"
-      [alt]="crewMember().name"
-    />
-  </picture>
 </section>

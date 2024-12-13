@@ -36,6 +36,8 @@ export class CrewLayoutComponent implements OnInit {
     const $crewObservable = this.crewService.getCrew(this.crewRole);
     $crewObservable
       .subscribe((crewMem) => {
+        console.log('INIT CREW');
+
         this.crewMember.set(crewMem);
       })
       .unsubscribe();
