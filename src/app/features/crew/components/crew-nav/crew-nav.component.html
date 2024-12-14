@@ -1,6 +1,9 @@
-<div class="menu">
-  <span class="dot active"></span>
-  <span class="dot"></span>
-  <span class="dot"></span>
-  <span class="dot"></span>
-</div>
+<nav class="nav">
+  <ul class="nav__list">
+    @for (link of crewLinks; track $index) {
+    <li class="nav__item dot" [ngClass]="{ 'dot-active': link.isActive() }">
+      <a [routerLink]="[path, link.path]" class="nav__link"></a>
+    </li>
+    }
+  </ul>
+</nav>

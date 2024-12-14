@@ -1,6 +1,8 @@
-import { Injectable } from '@angular/core';
+import { Injectable, signal } from '@angular/core';
 import { CrewInterface } from '../types/crew.type';
 import { Observable } from 'rxjs';
+import { CrewEspEnum } from '../types/crew.enum';
+import { LinkCrew } from '../types/interface.link.crew';
 
 @Injectable({
   providedIn: 'root',
@@ -48,6 +50,16 @@ export class CrewService {
   getCrew(role: string): Observable<CrewInterface> {
     return new Observable((subscriber) => {
       subscriber.next(this.crew.find((mem) => mem.role === role)!);
+    });
+  }
+
+  getLinks(): LinkCrew[] {
+    return Object.keys(CrewEspEnum).map((path) => {
+      const link: LinkCrew = {
+        path: path,
+        isActive: signal(false),
+      };
+      return link;
     });
   }
 }

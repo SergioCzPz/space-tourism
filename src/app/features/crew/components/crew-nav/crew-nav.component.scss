@@ -1,16 +1,37 @@
+@use "abstracts/variables" as v;
+@use "abstracts/mixins" as m;
+
 :host {
   display: block;
 }
 
-.menu {
+.nav__list {
   display: flex;
-  gap: 10px; /* Espaciado entre los puntos */
+  justify-content: center;
+  gap: 1.5rem;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.nav__item {
+  display: grid;
+  place-content: center;
+}
+
+.nav__link {
+  padding: 1rem;
 }
 
 .dot {
-  width: 12px;
-  height: 12px;
+  width: 1rem;
+  height: 1rem;
   border-radius: 50%;
-  background-color: #333; /* Color de los puntos inactivos */
-  transition: background-color 0.3s ease;
+  background-color: v.$white;
+  opacity: v.$number-op-20;
+  transition: opacity 0.3s ease;
+}
+
+.dot-active {
+  opacity: 1;
 }
