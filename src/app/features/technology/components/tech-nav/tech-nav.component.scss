@@ -1,3 +1,38 @@
+@use "abstracts/variables" as v;
+@use "abstracts/mixins" as m;
+
 :host {
   display: block;
+}
+
+.nav__list {
+  display: flex;
+  justify-content: center;
+  gap: 1.5rem;
+
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.nav__item {
+  list-style: none;
+}
+
+.nav__link {
+  display: grid;
+  place-content: center;
+
+  line-height: 0;
+  width: 4rem;
+  height: 4rem;
+  border-radius: 50%;
+  border: solid rgb(255 255 255 / 0.25);
+  color: v.$white;
+  text-decoration: none;
+}
+
+.nav__link-active {
+  background-color: v.$white;
+  color: v.$dark-blue;
 }

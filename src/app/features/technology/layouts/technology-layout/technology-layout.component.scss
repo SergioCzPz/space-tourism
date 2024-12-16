@@ -1,3 +1,63 @@
+@use "abstracts/variables" as v;
+@use "abstracts/mixins" as m;
+
 :host {
   display: block;
+}
+
+.tech {
+  padding: v.$mg-24 0 4.8rem;
+}
+
+.tech-flex {
+  display: flex;
+  flex-direction: column-reverse;
+}
+
+.tech__title {
+  text-align: center;
+  text-transform: uppercase;
+  color: v.$white;
+  margin: 0 0 v.$mg-64;
+}
+
+.tech__title--op {
+  opacity: v.$number-op;
+  margin-right: v.$mg-24;
+}
+
+.tech__content {
+  padding: v.$mg-32 v.$mg-24 0;
+}
+
+.tech__info {
+  margin-top: v.$mg-40;
+}
+
+.tech__terminology {
+  text-align: center;
+  text-transform: uppercase;
+  color: v.$white;
+  opacity: v.$number-op-50;
+  margin: 0 0 1.6rem;
+}
+
+.tech__technology {
+  text-align: center;
+  text-transform: uppercase;
+  color: v.$white;
+  margin: 0 0 1.6rem;
+}
+
+.tech__description {
+  text-align: center;
+  color: v.$light-blue;
+  margin: 0;
+  text-wrap: balance;
+}
+
+.tech__image {
+  object-fit: cover;
+  width: 100%;
+  height: auto;
 }

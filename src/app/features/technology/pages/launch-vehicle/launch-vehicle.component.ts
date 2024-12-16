@@ -11,5 +11,5 @@ import { TechnologyEnum } from '../../types/technology.enum';
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class LaunchVehicleComponent {
-  public technName = TechnologyEnum.lauch;
+  public technName = TechnologyEnum.launch;
 }

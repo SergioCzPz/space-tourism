@@ -1,5 +1,5 @@
 export enum TechnologyEnum {
-  lauch = 'Launch vehicle',
+  launch = 'Launch vehicle',
   spaceport = 'Spaceport',
   capsule = 'Space capsule',
 }

@@ -41,8 +41,6 @@ export class CrewNavComponent implements OnInit {
   }
 
   setActiveLink(crewRole: string) {
-    console.log(crewRole);
-
     if (this.role === crewRole) return;
     this.setInactiveLink();
     this.crewLinks.find((link) => link.path === crewRole)?.isActive.set(true);

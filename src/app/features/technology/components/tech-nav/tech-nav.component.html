@@ -1,1 +1,15 @@
-<p>tech-nav works!</p>,
+<nav class="nav">
+  <ul class="nav__list">
+    @for (link of paths; track $index) {
+
+    <li class="nav__item">
+      <a
+        [routerLink]="[pathTechnology, link.path]"
+        class="heading-4 nav__link"
+        [ngClass]="{ 'nav__link-active': link.isActive() }"
+        >{{ $index + 1 }}</a
+      >
+    </li>
+    }
+  </ul>
+</nav>

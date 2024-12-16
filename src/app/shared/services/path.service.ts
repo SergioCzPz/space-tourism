@@ -31,8 +31,6 @@ export class PathService {
       )
       .subscribe((urlAfterRedirects) => {
         this.updateActivePath(urlAfterRedirects);
-        console.log('currentMainSegment ', this.currentMainSegment());
-        console.log('currentLastSegment ', this.currentLastSegment());
       });
   }
 

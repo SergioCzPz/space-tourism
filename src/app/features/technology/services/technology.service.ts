@@ -1,6 +1,10 @@
-import { Injectable } from '@angular/core';
-import { TechnologyInterface } from '../types/technology.interface';
+import { Injectable, signal } from '@angular/core';
+import {
+  TechLinkInterface,
+  TechnologyInterface,
+} from '../types/technology.interface';
 import { Observable } from 'rxjs';
+import { TechnologyEnum } from '../types/technology.enum';
 
 @Injectable({ providedIn: 'root' })
 export class TechnologyService {
@@ -43,6 +47,16 @@ export class TechnologyService {
         (tech) => tech.name === techName
       )!;
       subscriber.next(technology);
+    });
+  }
+
+  getPaths(): TechLinkInterface[] {
+    return Object.keys(TechnologyEnum).map((tech) => {
+      const link: TechLinkInterface = {
+        path: tech,
+        isActive: signal(false),
+      };
+      return link;
     });
   }
 }
