@@ -20,6 +20,7 @@
   background-color: rgba(0, 0, 0, 0.1);
   backdrop-filter: blur(2.5rem);
 
+  z-index: 100;
   transition: right 1s ease-in-out;
 }
 
