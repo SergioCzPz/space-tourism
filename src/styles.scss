@@ -1,17 +1,29 @@
-/* You can add global styles to this file, and also import other style files */
+@use "abstracts/mixins" as m;
 
 .crew {
   background-image: url(assets/images/crew/background-crew-mobile.jpg);
+  @include m.mq("tablet") {
+    background-image: url(assets/images/crew/background-crew-tablet.jpg);
+  }
 }
 
 .destination {
   background-image: url(assets/images/destination/background-destination-mobile.jpg);
+  @include m.mq("tablet") {
+    background-image: url(assets/images/destination/background-destination-tablet.jpg);
+  }
 }
 
 .home {
   background-image: url(assets/images/home/background-home-mobile.jpg);
+  @include m.mq("tablet") {
+    background-image: url(assets/images/home/background-home-tablet.jpg);
+  }
 }
 
 .technology {
   background-image: url(assets/images/technology/background-technology-mobile.jpg);
+  @include m.mq("tablet") {
+    background-image: url(assets/images/technology/background-technology-tablet.jpg);
+  }
 }

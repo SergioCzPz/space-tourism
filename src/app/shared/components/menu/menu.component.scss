@@ -22,6 +22,15 @@
 
   z-index: 100;
   transition: right 1s ease-in-out;
+
+  @include m.mq("tablet") {
+    position: static;
+    display: block;
+    width: 100%;
+    height: auto;
+    padding: 0;
+    background-color: rgb(255 255 255 / 0.05);
+  }
 }
 
 .nav-mobile-active {
@@ -30,12 +39,27 @@
 
 .nav__close-container {
   padding: 0.95rem 0;
+
+  @include m.mq("tablet") {
+    display: none;
+  }
 }
 
 .nav__list {
   display: flex;
   flex-direction: column;
   gap: 1.7rem;
+
+  @include m.mq("tablet") {
+    flex-direction: row;
+    justify-content: flex-end;
+  }
+}
+
+.nav__close {
+  @include m.mq("tablet") {
+    display: none;
+  }
 }
 
 .nav__close-img {
@@ -47,6 +71,10 @@
   list-style: none;
   padding: 3.3rem 1.7rem;
   margin: 0;
+
+  @include m.mq("tablet") {
+    padding: v.$mg-24 4rem;
+  }
 }
 
 .nav__link {
@@ -64,6 +92,15 @@
   bottom: 0;
   width: 0.5rem;
   background-color: v.$white;
+
+  @include m.mq("tablet") {
+    top: unset;
+    bottom: -2.4rem;
+    right: 0;
+    left: 0;
+    width: 100%;
+    height: 0.5rem;
+  }
 }
 
 .nav__link-number {

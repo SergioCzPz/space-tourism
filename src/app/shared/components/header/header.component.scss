@@ -7,15 +7,30 @@
   align-items: center;
   justify-content: space-between;
   padding: 1rem;
+
+  @include m.mq("tablet") {
+    flex-wrap: nowrap;
+    padding: 0;
+  }
 }
 
 .header__logo-link {
   padding: 1.4rem;
+
+  @include m.mq("tablet") {
+    margin: 1rem 2.6rem;
+  }
 }
 
 .header__logo {
   width: 4rem;
   height: 4rem;
+
+  @include m.mq("tablet") {
+    object-fit: contain;
+    width: 4.8rem;
+    height: 4.8rem;
+  }
 }
 
 .header__btn {
@@ -23,4 +38,8 @@
   border: none;
   background-color: unset;
   padding: 1.4rem;
+
+  @include m.mq("tablet") {
+    display: none;
+  }
 }
