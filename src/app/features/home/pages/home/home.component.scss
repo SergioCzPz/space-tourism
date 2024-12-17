@@ -8,6 +8,15 @@
 .home-page {
   padding: 2.4rem;
   text-align: center;
+  @include m.mq("tablet") {
+    padding: v.$mg-128 v.$mg-40;
+  }
+}
+
+.home__info {
+  @include m.mq("tablet") {
+    padding: 0 12rem;
+  }
 }
 
 .home__title {
@@ -20,12 +29,21 @@
   display: block;
   color: v.$light-blue;
   margin-bottom: 2.4rem;
+
+  @include m.mq("tablet") {
+    font-size: v.$fs-28;
+    letter-spacing: v.$ls-h5;
+  }
 }
 
 .home__text {
   text-wrap: balance;
   color: v.$light-blue;
   margin: 2.4rem 0 0;
+
+  @include m.mq("tablet") {
+    text-wrap: pretty;
+  }
 }
 
 .home__explore {
@@ -38,4 +56,10 @@
   background-color: v.$white;
   text-transform: uppercase;
   text-decoration: none;
+
+  @include m.mq("tablet") {
+    margin: 6rem auto 0;
+    width: 27.2rem;
+    height: 27.2rem;
+  }
 }

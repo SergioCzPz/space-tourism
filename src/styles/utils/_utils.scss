@@ -19,6 +19,10 @@
   font-weight: v.$fw-400;
   font-size: v.$fs-80;
 
+  @include m.mq("tablet") {
+    font-size: v.$fs-144;
+  }
+
   @include m.mq("desktop") {
     font-size: v.$fs-144;
   }
