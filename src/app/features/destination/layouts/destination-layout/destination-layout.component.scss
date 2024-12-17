@@ -22,6 +22,7 @@
   @include m.mq("tablet") {
     font-size: v.$fs-20;
     text-align: start;
+    letter-spacing: v.$ls-preset-6;
   }
 }
 

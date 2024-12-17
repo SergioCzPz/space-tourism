@@ -7,6 +7,10 @@
 
 .crew-member {
   padding: v.$mg-24;
+
+  @include m.mq("tablet") {
+    padding: 4rem 4rem 0;
+  }
 }
 
 .crew__title {
@@ -14,6 +18,11 @@
   text-transform: uppercase;
   color: v.$white;
   margin: 0 0 v.$mg-24;
+
+  @include m.mq("tablet") {
+    text-align: start;
+    font-size: v.$fs-20;
+  }
 }
 
 .crew__title--num {
@@ -30,6 +39,10 @@
 
 .crew__info {
   margin: v.$mg-40 0 0;
+
+  @include m.mq("tablet") {
+    padding: 0 9.8rem;
+  }
 }
 
 .crew__role {
@@ -53,6 +66,10 @@
   text-wrap: balance;
   color: v.$light-blue;
   margin: v.$mg-24 0 v.$mg-80;
+
+  @include m.mq("tablet") {
+    margin-bottom: 5rem;
+  }
 }
 
 .crew__image {
@@ -60,4 +77,11 @@
   height: 35rem;
   width: 100%;
   margin: 0 auto;
+
+  @include m.mq("tablet") {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    height: 50rem;
+  }
 }
