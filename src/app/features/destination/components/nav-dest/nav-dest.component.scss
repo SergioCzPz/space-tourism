@@ -11,6 +11,9 @@
   gap: 3rem;
   margin: 0;
   padding: 0;
+  @include m.mq("tablet") {
+    justify-content: center;
+  }
 }
 
 .nav__link {
@@ -19,6 +22,14 @@
   padding: 0.5rem 0 1.5rem;
   text-decoration: none;
   text-transform: uppercase;
+
+  @include m.mq("tablet") {
+    padding: 0.5rem 1.5rem 1.5rem;
+  }
+}
+
+.nav__link-active {
+  color: v.$white;
 }
 
 .nav__link-active::before {

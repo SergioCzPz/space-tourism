@@ -7,6 +7,10 @@
 
 .destination-section {
   padding: v.$mg-24;
+
+  @include m.mq("tablet") {
+    padding: v.$mg-40;
+  }
 }
 
 .destination__title {
@@ -14,6 +18,11 @@
   text-transform: uppercase;
   color: v.$white;
   margin: 0;
+
+  @include m.mq("tablet") {
+    font-size: v.$fs-20;
+    text-align: start;
+  }
 }
 
 .destination__num {
@@ -28,6 +37,18 @@
 
 .destination__image {
   margin: v.$mg-24 auto v.$mg-32;
+
+  @include m.mq("tablet") {
+    margin: 6.5rem auto 8.5rem;
+    width: 30rem;
+    height: 30rem;
+  }
+}
+
+.destination__info {
+  @include m.mq("tablet") {
+    padding: 0 8.8rem;
+  }
 }
 
 .destination__about {
@@ -55,6 +76,12 @@
   align-items: center;
   gap: v.$mg-24;
   padding-top: v.$mg-24;
+
+  @include m.mq("tablet") {
+    flex-direction: row;
+    justify-content: center;
+    gap: 12rem;
+  }
 }
 
 .stats__title {
