@@ -30,6 +30,11 @@
   border: solid rgb(255 255 255 / 0.25);
   color: v.$white;
   text-decoration: none;
+
+  @include m.mq("tablet") {
+    width: 5.6rem;
+    height: 5.6rem;
+  }
 }
 
 .nav__link-active {
