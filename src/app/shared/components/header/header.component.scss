@@ -12,6 +12,11 @@
     flex-wrap: nowrap;
     padding: 0;
   }
+
+  @include m.mq("desktop") {
+    flex-wrap: nowrap;
+    padding: v.$mg-40 0;
+  }
 }
 
 .header__logo-link {
@@ -19,6 +24,10 @@
 
   @include m.mq("tablet") {
     margin: 1rem 2.6rem;
+  }
+
+  @include m.mq("desktop") {
+    margin: 0 5rem;
   }
 }
 
@@ -30,6 +39,10 @@
     object-fit: contain;
     width: 4.8rem;
     height: 4.8rem;
+  }
+
+  @include m.mq("desktop") {
+    object-fit: cover;
   }
 }
 

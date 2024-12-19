@@ -3,6 +3,9 @@
 
 :host {
   width: 100%;
+  @include m.mq("desktop") {
+    width: auto;
+  }
 }
 
 .nav {
@@ -31,6 +34,10 @@
     padding: 0;
     background-color: rgb(255 255 255 / 0.05);
   }
+
+  @include m.mq("desktop") {
+    padding: 0 5rem 0 14.5rem;
+  }
 }
 
 .nav-mobile-active {
@@ -54,6 +61,10 @@
     flex-direction: row;
     justify-content: flex-end;
   }
+
+  @include m.mq("desktop") {
+    gap: 2rem;
+  }
 }
 
 .nav__close {
@@ -74,6 +85,24 @@
 
   @include m.mq("tablet") {
     padding: v.$mg-24 4rem;
+  }
+
+  @include m.mq("desktop") {
+    position: relative;
+    gap: 2rem;
+    padding: v.$mg-24 0;
+  }
+}
+
+.nav__list::before {
+  @include m.mq("desktop") {
+    content: "";
+    position: absolute;
+    bottom: 47.5%;
+    left: -90%;
+    height: 0.1rem;
+    width: 80%;
+    background-color: rgb(255 255 255 / 0.35);
   }
 }
 
@@ -105,4 +134,8 @@
 
 .nav__link-number {
   font-weight: bolder;
+
+  @include m.mq("desktop") {
+    margin-right: 0.25rem;
+  }
 }

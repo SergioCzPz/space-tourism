@@ -5,12 +5,18 @@
   @include m.mq("tablet") {
     background-image: url(assets/images/crew/background-crew-tablet.jpg);
   }
+  @include m.mq("desktop") {
+    background-image: url(assets/images/crew/background-crew-desktop.jpg);
+  }
 }
 
 .destination {
   background-image: url(assets/images/destination/background-destination-mobile.jpg);
   @include m.mq("tablet") {
     background-image: url(assets/images/destination/background-destination-tablet.jpg);
+  }
+  @include m.mq("desktop") {
+    background-image: url(assets/images/destination/background-destination-desktop.jpg);
   }
 }
 
@@ -19,11 +25,17 @@
   @include m.mq("tablet") {
     background-image: url(assets/images/home/background-home-tablet.jpg);
   }
+  @include m.mq("desktop") {
+    background-image: url(assets/images/destination/background-destination-desktop.jpg);
+  }
 }
 
 .technology {
   background-image: url(assets/images/technology/background-technology-mobile.jpg);
   @include m.mq("tablet") {
     background-image: url(assets/images/technology/background-technology-tablet.jpg);
+  }
+  @include m.mq("desktop") {
+    background-image: url(assets/images/destination/background-destination-desktop.jpg);
   }
 }
