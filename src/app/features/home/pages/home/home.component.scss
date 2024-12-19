@@ -11,11 +11,26 @@
   @include m.mq("tablet") {
     padding: v.$mg-128 v.$mg-40;
   }
+
+  @include m.mq("desktop") {
+    display: flex;
+    justify-content: center;
+    gap: 10rem;
+    align-items: center;
+    margin: 0 auto;
+    padding: 37.8rem 0 v.$mg-128;
+    text-align: start;
+  }
 }
 
 .home__info {
   @include m.mq("tablet") {
     padding: 0 12rem;
+  }
+
+  @include m.mq("desktop") {
+    padding: 0;
+    max-width: 54rem;
   }
 }
 
@@ -23,6 +38,10 @@
   text-transform: uppercase;
   color: v.$white;
   margin: 0;
+
+  @include m.mq("desktop") {
+    font-size: 15rem;
+  }
 }
 
 .home__title-span {
@@ -44,6 +63,10 @@
   @include m.mq("tablet") {
     text-wrap: pretty;
   }
+
+  @include m.mq("tablet") {
+    text-wrap: balance;
+  }
 }
 
 .home__explore {
@@ -61,5 +84,9 @@
     margin: 6rem auto 0;
     width: 27.2rem;
     height: 27.2rem;
+  }
+
+  @include m.mq("desktop") {
+    margin: 0;
   }
 }
