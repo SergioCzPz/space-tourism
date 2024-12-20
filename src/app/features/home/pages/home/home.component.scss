@@ -18,8 +18,12 @@
     gap: 10rem;
     align-items: center;
     margin: 0 auto;
-    padding: 37.8rem 0 v.$mg-128;
+    padding: 8.8rem 0 v.$mg-128;
     text-align: start;
+  }
+
+  @include m.mq("desktop-wide") {
+    padding: 37.8rem 0 v.$mg-128;
   }
 }
 
