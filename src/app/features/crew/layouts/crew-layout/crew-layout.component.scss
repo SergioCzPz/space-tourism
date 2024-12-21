@@ -15,6 +15,11 @@
   @include m.mq("desktop") {
     padding: 0.8rem 17rem 4.8rem;
   }
+
+  @include m.mq("desktop-wide") {
+    max-width: 144rem;
+    margin: 0 auto;
+  }
 }
 
 .crew__title {
@@ -106,6 +111,25 @@
 .picture {
   @include m.mq("desktop") {
     flex: 1;
+    position: relative;
+  }
+}
+
+.picture::before {
+  @include m.mq("desktop") {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    display: block;
+    width: 54rem;
+    height: 15rem;
+    background: rgb(11, 13, 23);
+    background: linear-gradient(
+      0deg,
+      rgba(11, 13, 23, 1) 0%,
+      rgba(11, 13, 23, 0) 100%
+    );
   }
 }
 

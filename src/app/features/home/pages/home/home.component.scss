@@ -23,7 +23,8 @@
   }
 
   @include m.mq("desktop-wide") {
-    padding: 37.8rem 0 v.$mg-128;
+    max-width: 144rem;
+    padding: 38rem 0 v.$mg-128;
   }
 }
 

@@ -104,6 +104,11 @@
     width: 80%;
     background-color: rgb(255 255 255 / 0.35);
   }
+
+  @include m.mq("desktop-wide") {
+    width: 60rem;
+    left: -125%;
+  }
 }
 
 .nav__link {

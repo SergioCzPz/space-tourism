@@ -17,6 +17,11 @@
     flex-wrap: nowrap;
     padding: v.$mg-40 0;
   }
+
+  @include m.mq("desktop-wide") {
+    margin: 0 auto;
+    max-width: 144rem;
+  }
 }
 
 .header__logo-link {
