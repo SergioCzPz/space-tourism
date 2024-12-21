@@ -11,11 +11,20 @@
   @include m.mq("tablet") {
     padding: v.$mg-40 0;
   }
+
+  @include m.mq("desktop") {
+    padding: 0.8rem 0 4.8rem 17rem;
+  }
 }
 
 .tech-flex {
   display: flex;
   flex-direction: column-reverse;
+
+  @include m.mq("desktop") {
+    flex-direction: row;
+    gap: 3.2rem;
+  }
 }
 
 .tech__title {
@@ -28,6 +37,11 @@
     text-align: start;
     margin-left: 4rem;
     font-size: v.$fs-20;
+  }
+
+  @include m.mq("desktop") {
+    margin-left: 0;
+    font-size: v.$fs-28;
   }
 }
 
@@ -43,6 +57,14 @@
     padding: v.$mg-40;
     padding-bottom: 0;
   }
+
+  @include m.mq("desktop") {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    gap: 6.4rem;
+    padding: 0;
+  }
 }
 
 .tech__info {
@@ -50,6 +72,10 @@
 
   @include m.mq("tablet") {
     margin: v.$mg-40 8.8rem 0;
+  }
+
+  @include m.mq("desktop") {
+    margin: 0;
   }
 }
 
@@ -59,6 +85,10 @@
   color: v.$white;
   opacity: v.$number-op-50;
   margin: 0 0 1.6rem;
+
+  @include m.mq("desktop") {
+    text-align: start;
+  }
 }
 
 .tech__technology {
@@ -66,6 +96,10 @@
   text-transform: uppercase;
   color: v.$white;
   margin: 0 0 1.6rem;
+
+  @include m.mq("desktop") {
+    text-align: start;
+  }
 }
 
 .tech__description {
@@ -73,10 +107,21 @@
   color: v.$light-blue;
   margin: 0;
   text-wrap: balance;
+
+  @include m.mq("desktop") {
+    text-align: start;
+  }
 }
 
 .tech__image {
   object-fit: cover;
   width: 100%;
   height: auto;
+
+  @include m.mq("desktop") {
+    flex: 1;
+    // object-fit: contain;
+    width: 60rem;
+    height: 73rem;
+  }
 }
