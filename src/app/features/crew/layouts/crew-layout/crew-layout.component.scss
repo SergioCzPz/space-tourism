@@ -11,6 +11,10 @@
   @include m.mq("tablet") {
     padding: 4rem 4rem 0;
   }
+
+  @include m.mq("desktop") {
+    padding: 0.8rem 17rem 4.8rem;
+  }
 }
 
 .crew__title {
@@ -22,6 +26,10 @@
   @include m.mq("tablet") {
     text-align: start;
     font-size: v.$fs-20;
+  }
+
+  @include m.mq("desktop") {
+    font-size: 2.8rem;
   }
 }
 
@@ -35,6 +43,10 @@
   display: flex;
   flex-direction: column;
   gap: v.$mg-32;
+
+  @include m.mq("desktop") {
+    flex-direction: row;
+  }
 }
 
 .crew__info {
@@ -42,6 +54,15 @@
 
   @include m.mq("tablet") {
     padding: 0 9.8rem;
+  }
+
+  @include m.mq("desktop") {
+    flex: 1;
+    display: grid;
+    grid-template-rows: 1fr 3rem;
+    align-items: center;
+    margin: 0;
+    padding: 0 0 1.8rem;
   }
 }
 
@@ -51,6 +72,9 @@
   color: v.$white;
   opacity: v.$number-op-50;
   margin: 0;
+  @include m.mq("desktop") {
+    text-align: start;
+  }
 }
 
 .crew__name {
@@ -58,9 +82,12 @@
   text-align: center;
   color: v.$white;
   margin: v.$mg-5 0 0;
+
+  @include m.mq("desktop") {
+    text-align: start;
+  }
 }
 
-// check margin due to padding crew nav links
 .crew__bio {
   text-align: center;
   text-wrap: balance;
@@ -69,6 +96,16 @@
 
   @include m.mq("tablet") {
     margin-bottom: 5rem;
+  }
+
+  @include m.mq("desktop") {
+    text-align: start;
+  }
+}
+
+.picture {
+  @include m.mq("desktop") {
+    flex: 1;
   }
 }
 
@@ -83,5 +120,14 @@
     bottom: 0;
     left: 0;
     height: 50rem;
+  }
+
+  @include m.mq("desktop") {
+    position: static;
+    // object-fit: cover;
+    object-fit: contain;
+    width: 54rem;
+    // height: auto;
+    height: 73.4rem;
   }
 }
