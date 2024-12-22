@@ -118,21 +118,32 @@
   padding: 1.5rem;
 }
 
-.nav__link:hover:not(.nav__link-active)::before {
+.nav__link:not(.nav__link-active)::before {
   content: "";
   position: absolute;
   top: 0;
   right: -2.7rem;
   bottom: 0;
-  width: 0.5rem;
+  width: 0;
   background-color: v.$white;
-  opacity: 0.5;
+  opacity: 0;
+  transition: all 0.3s ease;
 
   @include m.mq("tablet") {
     top: unset;
     bottom: -2.4rem;
     right: 0;
     left: 0;
+    width: 0;
+    height: 0;
+  }
+}
+
+.nav__link:hover:not(.nav__link-active)::before {
+  width: 0.5rem;
+  opacity: 0.5;
+
+  @include m.mq("tablet") {
     width: 100%;
     height: 0.5rem;
   }

@@ -97,16 +97,26 @@
   }
 }
 
-.home__explore:hover::before {
+.home__explore::before {
+  content: "";
+  position: absolute;
+  top: -9rem;
+  left: -9rem;
+  border-radius: 50%;
+  background-color: v.$white;
+  opacity: 0;
+  transition: all 0.5s ease;
+
   @include m.mq("desktop") {
-    content: "";
-    position: absolute;
     top: -9rem;
     left: -9rem;
+  }
+}
+
+.home__explore:hover::before {
+  @include m.mq("desktop") {
     width: 45rem;
     height: 45rem;
-    border-radius: 50%;
-    background-color: v.$white;
     opacity: 0.5;
   }
 }
