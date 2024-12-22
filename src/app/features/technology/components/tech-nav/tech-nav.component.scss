@@ -47,6 +47,11 @@
   }
 }
 
+.nav__link:hover:not(.nav__link-active) {
+  border-color: v.$white;
+  color: v.$white;
+}
+
 .nav__link-active {
   background-color: v.$white;
   color: v.$dark-blue;

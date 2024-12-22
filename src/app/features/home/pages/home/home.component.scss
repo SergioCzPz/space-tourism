@@ -92,6 +92,21 @@
   }
 
   @include m.mq("desktop") {
+    position: relative;
     margin: 0;
+  }
+}
+
+.home__explore:hover::before {
+  @include m.mq("desktop") {
+    content: "";
+    position: absolute;
+    top: -9rem;
+    left: -9rem;
+    width: 45rem;
+    height: 45rem;
+    border-radius: 50%;
+    background-color: v.$white;
+    opacity: 0.5;
   }
 }

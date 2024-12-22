@@ -42,6 +42,10 @@
   }
 }
 
+.dot:hover:not(.dot-active) {
+  opacity: 0.5;
+}
+
 .dot-active {
   opacity: 1;
 }
