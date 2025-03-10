@@ -47,9 +47,18 @@ export class CrewService {
     },
   ];
 
+  private crewMap: Map<string, string> = new Map([
+    ['commander', 'Commander'],
+    ['specialist', 'Mission Specialist'],
+    ['pilot', 'Pilot'],
+    ['engineer', 'Flight Engineer'],
+  ]);
+
   getCrew(role: string): Observable<CrewInterface> {
     return new Observable((subscriber) => {
-      subscriber.next(this.crew.find((mem) => mem.role === role)!);
+      subscriber.next(
+        this.crew.find((mem) => mem.role === this.crewMap.get(role))!
+      );
     });
   }
 

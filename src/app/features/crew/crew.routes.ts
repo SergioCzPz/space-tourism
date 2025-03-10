@@ -1,8 +1,5 @@
 import { Routes } from '@angular/router';
-import { CommanderComponent } from './pages/commander/commander.component';
-import { SpecialistComponent } from './pages/specialist/specialist.component';
-import { PilotComponent } from './pages/pilot/pilot.component';
-import { EngineerComponent } from './pages/engineer/engineer.component';
+import { CrewComponent } from './pages/crew/crew.component';
 
 export const routes: Routes = [
   {
@@ -11,19 +8,7 @@ export const routes: Routes = [
     pathMatch: 'full',
   },
   {
-    path: 'commander',
-    component: CommanderComponent,
-  },
-  {
-    path: 'specialist',
-    component: SpecialistComponent,
-  },
-  {
-    path: 'pilot',
-    component: PilotComponent,
-  },
-  {
-    path: 'engineer',
-    component: EngineerComponent,
+    path: ':crew',
+    component: CrewComponent,
   },
 ];

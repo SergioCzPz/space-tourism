@@ -9,7 +9,7 @@ export const routes: Routes = [
       import('./features/destination/destination.routes').then((m) => m.routes),
   },
   {
-    path: 'crew/:crew',
+    path: 'crew',
     loadChildren: () =>
       import('./features/crew/crew.routes').then((m) => m.routes),
   },
