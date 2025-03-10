@@ -41,10 +41,16 @@ export class TechnologyService {
     },
   ];
 
+  private techMap: Map<string, string> = new Map([
+    ['launch', 'Launch vehicle'],
+    ['spaceport', 'Spaceport'],
+    ['capsule', 'Space capsule'],
+  ]);
+
   getTechnology(techName: string): Observable<TechnologyInterface> {
     return new Observable((subscriber) => {
       const technology = this.technologies.find(
-        (tech) => tech.name === techName
+        (tech) => tech.name === this.techMap.get(techName)
       )!;
       subscriber.next(technology);
     });

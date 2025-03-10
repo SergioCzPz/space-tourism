@@ -14,7 +14,7 @@ export const routes: Routes = [
       import('./features/crew/crew.routes').then((m) => m.routes),
   },
   {
-    path: 'technology/:technology',
+    path: 'technology',
     loadChildren: () =>
       import('./features/technology/technology.routes').then((m) => m.routes),
   },
