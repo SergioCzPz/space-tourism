@@ -61,6 +61,8 @@
 
 .destination__image {
   margin: v.$mg-24 auto v.$mg-32;
+  width: 15rem;
+  height: 15rem;
 
   @include m.mq("tablet") {
     margin: 6.5rem auto 8.5rem;
