@@ -2,7 +2,6 @@ import {
   ChangeDetectionStrategy,
   Component,
   inject,
-  Input,
   OnDestroy,
   OnInit,
   signal,
@@ -12,7 +11,8 @@ import { CrewService } from '../../services/crew.service';
 import { CrewInterface } from '../../types/crew.type';
 import { CrewNavComponent } from '../../components/crew-nav/crew-nav.component';
 import { ActivatedRoute, ParamMap } from '@angular/router';
-import { Observable, Subscription, switchMap } from 'rxjs';
+import { Observable, Subscription, switchMap, tap } from 'rxjs';
+import { Meta, Title } from '@angular/platform-browser';
 
 @Component({
   selector: 'app-crew-layout',
@@ -23,6 +23,8 @@ import { Observable, Subscription, switchMap } from 'rxjs';
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class CrewComponent implements OnInit, OnDestroy {
+  private title = inject(Title);
+  private meta = inject(Meta);
   private route = inject(ActivatedRoute);
   private crewService = inject(CrewService);
   private $crewObservable: Subscription | null = null;
@@ -46,6 +48,27 @@ export class CrewComponent implements OnInit, OnDestroy {
             return this.crewService.getCrew(member);
           }
           return new Observable<CrewInterface>();
+        }),
+        tap((member) => {
+          const pageTitle = `Crew - ${member.role}`;
+
+          this.title.setTitle(pageTitle);
+          this.meta.updateTag({
+            name: 'description',
+            content: member.bio,
+          });
+          this.meta.updateTag({
+            name: 'og:title',
+            content: pageTitle,
+          });
+          this.meta.updateTag({
+            name: 'og:description',
+            content: member.bio,
+          });
+          this.meta.updateTag({
+            name: 'og:image',
+            content: member.images.png,
+          });
         })
       )
       .subscribe((member) => {

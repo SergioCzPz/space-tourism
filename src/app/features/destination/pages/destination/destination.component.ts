@@ -12,7 +12,8 @@ import { DestinationService } from '../../services/destination.service';
 import { NavDestComponent } from '../../components/nav-dest/nav-dest.component';
 import { CommonModule } from '@angular/common';
 import { ActivatedRoute, ParamMap } from '@angular/router';
-import { Observable, Subscription, switchMap } from 'rxjs';
+import { Observable, Subscription, switchMap, tap } from 'rxjs';
+import { Meta, Title } from '@angular/platform-browser';
 
 @Component({
   selector: 'app-destination',
@@ -23,6 +24,8 @@ import { Observable, Subscription, switchMap } from 'rxjs';
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export default class DestinationComponent implements OnInit, OnDestroy {
+  private title = inject(Title);
+  private meta = inject(Meta);
   private route = inject(ActivatedRoute);
   private destinationService = inject(DestinationService);
   private $destObservable: Subscription | null = null;
@@ -44,6 +47,27 @@ export default class DestinationComponent implements OnInit, OnDestroy {
             return this.destinationService.getDestination(destinationName);
           }
           return new Observable<Destination>();
+        }),
+        tap((dest) => {
+          const pageTitle = `Destination - ${dest.name}`;
+
+          this.title.setTitle(pageTitle);
+          this.meta.updateTag({
+            name: 'description',
+            content: dest.description,
+          });
+          this.meta.updateTag({
+            name: 'og:title',
+            content: pageTitle,
+          });
+          this.meta.updateTag({
+            name: 'og:description',
+            content: dest.description,
+          });
+          this.meta.updateTag({
+            name: 'og:image',
+            content: dest.images.png,
+          });
         })
       )
       .subscribe((dest) => {

@@ -2,7 +2,6 @@ import {
   ChangeDetectionStrategy,
   Component,
   inject,
-  Input,
   OnDestroy,
   OnInit,
   signal,
@@ -13,7 +12,8 @@ import { TechnologyService } from '../../services/technology.service';
 import { TechnologyInterface } from '../../types/technology.interface';
 import { CommonModule } from '@angular/common';
 import { ActivatedRoute, ParamMap } from '@angular/router';
-import { Observable, Subscription, switchMap } from 'rxjs';
+import { Observable, Subscription, switchMap, tap } from 'rxjs';
+import { Meta, Title } from '@angular/platform-browser';
 
 @Component({
   selector: 'app-technology-layout',
@@ -24,6 +24,8 @@ import { Observable, Subscription, switchMap } from 'rxjs';
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class TechnologyComponent implements OnInit, OnDestroy {
+  private title = inject(Title);
+  private meta = inject(Meta);
   private route = inject(ActivatedRoute);
   private technologyService = inject(TechnologyService);
   private $technologyObservable: Subscription | null = null;
@@ -47,6 +49,27 @@ export class TechnologyComponent implements OnInit, OnDestroy {
             return this.technologyService.getTechnology(tech);
           }
           return new Observable<TechnologyInterface>();
+        }),
+        tap((tech) => {
+          const pageTitle = `Technology - ${tech.name}`;
+
+          this.title.setTitle(pageTitle);
+          this.meta.updateTag({
+            name: 'description',
+            content: tech.description,
+          });
+          this.meta.updateTag({
+            name: 'og:title',
+            content: pageTitle,
+          });
+          this.meta.updateTag({
+            name: 'og:description',
+            content: tech.description,
+          });
+          this.meta.updateTag({
+            name: 'og:image',
+            content: tech.images.landscape,
+          });
         })
       )
       .subscribe((tech) => {
