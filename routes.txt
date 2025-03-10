@@ -1,0 +1,11 @@
+/destination/moon
+/destination/mars
+/destination/europa
+/destination/titan
+/crew/commander
+/crew/specialist
+/crew/pilot
+/crew/engineer
+/technology/launch
+/technology/spaceport
+/technology/capsule

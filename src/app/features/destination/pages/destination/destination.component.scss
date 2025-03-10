@@ -116,6 +116,7 @@
 
   @include m.mq("desktop") {
     text-align: start;
+    min-height: 13rem;
   }
 }
 
