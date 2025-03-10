@@ -9,12 +9,12 @@ export const routes: Routes = [
       import('./features/destination/destination.routes').then((m) => m.routes),
   },
   {
-    path: 'crew',
+    path: 'crew/:crew',
     loadChildren: () =>
       import('./features/crew/crew.routes').then((m) => m.routes),
   },
   {
-    path: 'technology',
+    path: 'technology/:technology',
     loadChildren: () =>
       import('./features/technology/technology.routes').then((m) => m.routes),
   },

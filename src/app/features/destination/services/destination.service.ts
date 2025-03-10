@@ -81,7 +81,9 @@ export class DestinationService {
   getDestination(destination: string): Observable<Destination> {
     return new Observable((subscriber) => {
       subscriber.next(
-        this.destinations.find((dest) => dest.name === destination)!
+        this.destinations.find(
+          (dest) => dest.name.toLowerCase() === destination
+        )!
       );
     });
   }
