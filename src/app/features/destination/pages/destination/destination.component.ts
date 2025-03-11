@@ -70,6 +70,14 @@ export default class DestinationComponent implements OnInit, OnDestroy {
             name: 'og:image',
             content: imageUrl,
           });
+          this.meta.updateTag({
+            name: 'og:image:width',
+            content: '1200',
+          });
+          this.meta.updateTag({
+            name: 'og:image:height',
+            content: '600',
+          });
         })
       )
       .subscribe((dest) => {
