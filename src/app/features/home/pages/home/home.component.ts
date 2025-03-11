@@ -39,7 +39,7 @@ export class HomeComponent implements OnInit {
     });
     this.meta.updateTag({
       name: 'og:image',
-      content: 'assets/images/home/background-home-desktop.jpg',
+      content: './assets/images/home/background-home-desktop.jpg',
     });
   }
 }
