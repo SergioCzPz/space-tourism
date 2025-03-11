@@ -10,7 +10,7 @@ import {
 import { TechNavComponent } from '../../components/tech-nav/tech-nav.component';
 import { TechnologyService } from '../../services/technology.service';
 import { TechnologyInterface } from '../../types/technology.interface';
-import { CommonModule } from '@angular/common';
+import { CommonModule, DOCUMENT } from '@angular/common';
 import { ActivatedRoute, ParamMap } from '@angular/router';
 import { Observable, Subscription, switchMap, tap } from 'rxjs';
 import { Meta, Title } from '@angular/platform-browser';
@@ -29,6 +29,7 @@ export class TechnologyComponent implements OnInit, OnDestroy {
   private route = inject(ActivatedRoute);
   private technologyService = inject(TechnologyService);
   private $technologyObservable: Subscription | null = null;
+  private document = inject(DOCUMENT);
 
   public technology: WritableSignal<TechnologyInterface> = signal({
     description: '',
@@ -52,6 +53,7 @@ export class TechnologyComponent implements OnInit, OnDestroy {
         }),
         tap((tech) => {
           const pageTitle = `Technology - ${tech.name}`;
+          const imageUrl = `${this.document.location.origin}${tech.images.landscape}`;
 
           this.title.setTitle(pageTitle);
           this.meta.updateTag({
@@ -68,7 +70,7 @@ export class TechnologyComponent implements OnInit, OnDestroy {
           });
           this.meta.updateTag({
             name: 'og:image',
-            content: tech.images.landscape,
+            content: imageUrl,
           });
         })
       )

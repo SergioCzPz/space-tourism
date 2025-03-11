@@ -10,7 +10,7 @@ import {
 import { Destination } from '../../types/destination.interface';
 import { DestinationService } from '../../services/destination.service';
 import { NavDestComponent } from '../../components/nav-dest/nav-dest.component';
-import { CommonModule } from '@angular/common';
+import { CommonModule, DOCUMENT } from '@angular/common';
 import { ActivatedRoute, ParamMap } from '@angular/router';
 import { Observable, Subscription, switchMap, tap } from 'rxjs';
 import { Meta, Title } from '@angular/platform-browser';
@@ -29,6 +29,7 @@ export default class DestinationComponent implements OnInit, OnDestroy {
   private route = inject(ActivatedRoute);
   private destinationService = inject(DestinationService);
   private $destObservable: Subscription | null = null;
+  private document = inject(DOCUMENT);
 
   public destination: WritableSignal<Destination> = signal({
     name: '',
@@ -50,6 +51,7 @@ export default class DestinationComponent implements OnInit, OnDestroy {
         }),
         tap((dest) => {
           const pageTitle = `Destination - ${dest.name}`;
+          const imageUrl = `${this.document.location.origin}${dest.images.png}`;
 
           this.title.setTitle(pageTitle);
           this.meta.updateTag({
@@ -66,7 +68,7 @@ export default class DestinationComponent implements OnInit, OnDestroy {
           });
           this.meta.updateTag({
             name: 'og:image',
-            content: dest.images.png,
+            content: imageUrl,
           });
         })
       )

@@ -13,6 +13,7 @@ import { CrewNavComponent } from '../../components/crew-nav/crew-nav.component';
 import { ActivatedRoute, ParamMap } from '@angular/router';
 import { Observable, Subscription, switchMap, tap } from 'rxjs';
 import { Meta, Title } from '@angular/platform-browser';
+import { DOCUMENT } from '@angular/common';
 
 @Component({
   selector: 'app-crew-layout',
@@ -28,6 +29,7 @@ export class CrewComponent implements OnInit, OnDestroy {
   private route = inject(ActivatedRoute);
   private crewService = inject(CrewService);
   private $crewObservable: Subscription | null = null;
+  private document = inject(DOCUMENT);
 
   public crewMember: WritableSignal<CrewInterface> = signal({
     bio: '',
@@ -51,6 +53,7 @@ export class CrewComponent implements OnInit, OnDestroy {
         }),
         tap((member) => {
           const pageTitle = `Crew - ${member.role}`;
+          const imageUrl = `${this.document.location.origin}${member.images.png}`;
 
           this.title.setTitle(pageTitle);
           this.meta.updateTag({
@@ -67,7 +70,7 @@ export class CrewComponent implements OnInit, OnDestroy {
           });
           this.meta.updateTag({
             name: 'og:image',
-            content: member.images.png,
+            content: imageUrl,
           });
         })
       )

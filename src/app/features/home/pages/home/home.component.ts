@@ -1,3 +1,4 @@
+import { DOCUMENT } from '@angular/common';
 import {
   ChangeDetectionStrategy,
   Component,
@@ -18,9 +19,11 @@ import { RouterLink } from '@angular/router';
 export class HomeComponent implements OnInit {
   private title = inject(Title);
   private meta = inject(Meta);
+  private document = inject(DOCUMENT);
 
   ngOnInit(): void {
     const pageTitle = 'Space Tourism';
+    const imageUrl = `${this.document.location.origin}/assets/images/home/background-home-desktop.jpg`;
     const description =
       'Let’s face it; if you want to go to space, you might as well genuinely go to outer space and not hover kind of on the edge of it. Well sit back, and relax because we’ll give you a truly out of this world experience!';
 
@@ -39,7 +42,7 @@ export class HomeComponent implements OnInit {
     });
     this.meta.updateTag({
       name: 'og:image',
-      content: './assets/images/home/background-home-desktop.jpg',
+      content: imageUrl,
     });
   }
 }
