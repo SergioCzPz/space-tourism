@@ -1,27 +1,50 @@
-# SpaceTourism
+<h1 style="text-align: center;">Space Tourism</h1>
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 18.2.11.
+This project is a challenge from [Frontend Mentor](https://www.frontendmentor.io/). Is a multi-page website with static information.
 
-## Development server
+## Build with
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+- [Angular (CLI 18.2.0)](https://angular.dev)
+- [SASS](https://sass-lang.com)
 
-## Code scaffolding
+## Features
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+- Server Side Rendering
+- Prerendering (Static Site Generation)
+- Route transition animations
+- Signals
 
-## Build
+---
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+## Checkout Final Website
 
-## Running unit tests
+[Visit Space Tourism Website](https://spacetourismscp.netlify.app/)
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+![Preview of the website](src/assets/spacetourismscp.png)
 
-## Running end-to-end tests
+---
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
+## Local Development and Quickstart
 
-## Further help
+### Prerequisites
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+- Install [Node.js](https://nodejs.org)
+- You can install [Angular CLI](https://angular.dev) via npm with `npm install -g @angular/cli@18.2.0`
+- Clone this repo `git clone https://github.com/SergioCzPz/space-tourism.git`
+- In the terminal, enter to the path of the folder where the **space tourism** project is, once there, you can install all the dependencies via `npm` with `npm install`
+- Finally, you can devolope the project with `ng serve` or you can build the project with `ng build`
+
+---
+
+## To do
+
+- Create testing for this application
+- **Bug Fix:** The state of the main menu once initialize
+
+---
+
+## Contributions
+
+I'd love to receive your contributions, be it code fixes, new features, bug reports, discussions, or anything else that can help me.
+
+If you would like to contribute a fix for an issue, please comment on the issue indicating that you want to fix it so that we can assign it to you and track the status on our end. If the issue does not exist, create it first or ask that an existing discussion be promoted to an issue.
